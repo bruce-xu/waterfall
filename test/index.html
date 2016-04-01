@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Waterfall test</title>
+        <style type="text/css">
+            .container {
+                width: 1000px;
+                margin: 0 auto;
+            }
+            .wf-img {
+                float: left;
+                width: 200px;
+                padding: 5px;
+                margin: 3px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+            }
+            .wf-img img {
+                width: 100%;
+            }
+        </style>
+        <script src="../Waterfall.js"></script>
+    </head>
+    <body>
+        <div class="container" id="container"></div>
+        <script>
+            var pagedImages = [
+                [
+                    "http://gtb.baidu.com/HttpService/get?p=dHlwZT1pbWFnZS9qcGVnJm49dmlzJnQ9YWRpbWcmYz10YjppZyZyPTM1NzMxNjI1NCwzNTk2ODUwMzE4",
+                    "http://img0.imgtn.bdimg.com/it/u=4256573763,278547175&fm=21&gp=0.jpg",
+                    "http://img0.imgtn.bdimg.com/it/u=2247491008,298062800&fm=21&gp=0.jpg",
+                    "http://img0.imgtn.bdimg.com/it/u=2760896174,3218676338&fm=21&gp=0.jpg",
+                    "http://img0.imgtn.bdimg.com/it/u=4168762024,1922499492&fm=21&gp=0.jpg",
+                    "http://img5.imgtn.bdimg.com/it/u=3425851328,2681317699&fm=21&gp=0.jpg",
+                    "http://img5.imgtn.bdimg.com/it/u=1849768669,2102852722&fm=21&gp=0.jpg",
+                    "http://img2.imgtn.bdimg.com/it/u=2932558274,1168107498&fm=21&gp=0.jpg",
+                    "http://img1.imgtn.bdimg.com/it/u=3700630188,1430779433&fm=21&gp=0.jpg",
+                    "http://img1.imgtn.bdimg.com/it/u=1480985633,1206349730&fm=21&gp=0.jpg",
+                    "http://img5.imgtn.bdimg.com/it/u=1956790230,2945275299&fm=21&gp=0.jpg",
+                    "http://img0.imgtn.bdimg.com/it/u=790098218,638143216&fm=21&gp=0.jpg",
+                    "http://img2.imgtn.bdimg.com/it/u=546811603,943746655&fm=21&gp=0.jpg",
+                    "http://img3.imgtn.bdimg.com/it/u=1004923767,1740191382&fm=21&gp=0.jpg",
+                    "http://img2.imgtn.bdimg.com/it/u=748131240,1005730028&fm=21&gp=0.jpg",
+                    "http://img0.imgtn.bdimg.com/it/u=3246030480,1173771526&fm=21&gp=0.jpg",
+                    "http://img4.imgtn.bdimg.com/it/u=865698757,1509853491&fm=21&gp=0.jpg",
+                    "http://img1.imgtn.bdimg.com/it/u=2472185283,1922689262&fm=21&gp=0.jpg",
+                    "http://img2.imgtn.bdimg.com/it/u=4074120680,1795188652&fm=21&gp=0.jpg",
+                    "http://img3.imgtn.bdimg.com/it/u=2336398478,1319757445&fm=21&gp=0.jpg",
+                    "http://img4.imgtn.bdimg.com/it/u=4126149299,530543247&fm=21&gp=0.jpg",
+                    "http://img5.imgtn.bdimg.com/it/u=3247771464,3385800003&fm=21&gp=0.jpg",
+                    "http://img4.imgtn.bdimg.com/it/u=1124710306,1328595162&fm=21&gp=0.jpg",
+                    "http://img0.imgtn.bdimg.com/it/u=109184667,4275426733&fm=21&gp=0.jpg",
+                    "http://img3.imgtn.bdimg.com/it/u=737576502,2824942953&fm=21&gp=0.jpg",
+                    "http://img1.imgtn.bdimg.com/it/u=2959844607,1774463192&fm=21&gp=0.jpg",
+                    "http://img3.imgtn.bdimg.com/it/u=443763769,163699904&fm=21&gp=0.jpg",
+                    "http://img1.imgtn.bdimg.com/it/u=2048246522,1244394203&fm=21&gp=0.jpg",
+                    "http://img3.imgtn.bdimg.com/it/u=2465434175,3103099436&fm=21&gp=0.jpg",
+                    "http://img3.imgtn.bdimg.com/it/u=2516840142,3396275833&fm=21&gp=0.jpg",
+                    "http://img4.imgtn.bdimg.com/it/u=3614720735,169885469&fm=21&gp=0.jpg",
+                    "http://img4.imgtn.bdimg.com/it/u=55029144,2605288264&fm=21&gp=0.jpg",
+                    "http://img5.imgtn.bdimg.com/it/u=992620062,942493679&fm=21&gp=0.jpg",
+                    "http://img0.imgtn.bdimg.com/it/u=2764977330,1259378796&fm=21&gp=0.jpg",
+                    "http://img1.imgtn.bdimg.com/it/u=3288864176,1084136271&fm=21&gp=0.jpg",
+                    "http://img0.imgtn.bdimg.com/it/u=1049052483,3990873919&fm=21&gp=0.jpg",
+                    "http://img0.imgtn.bdimg.com/it/u=1376722746,2721060432&fm=21&gp=0.jpg",
+                    "http://img5.imgtn.bdimg.com/it/u=2489204896,3440397953&fm=21&gp=0.jpg",
+                    "http://img2.imgtn.bdimg.com/it/u=1262102604,326317574&fm=21&gp=0.jpg",
+                    "http://img1.imgtn.bdimg.com/it/u=2173822831,1267378200&fm=23&gp=0.jpg"
+                ],
+                [
+                    "http://img0.imgtn.bdimg.com/it/u=2461212587,1051009393&fm=23&gp=0.jpg",
+                    "http://img2.imgtn.bdimg.com/it/u=451523955,1115502761&fm=23&gp=0.jpg",
+                    "http://img2.imgtn.bdimg.com/it/u=3553221435,941148981&fm=21&gp=0.jpg",
+                    "http://img4.imgtn.bdimg.com/it/u=3186834400,3593111014&fm=21&gp=0.jpg",
+                    "http://img3.imgtn.bdimg.com/it/u=2883277031,2810817002&fm=21&gp=0.jpg",
+                    "http://img3.imgtn.bdimg.com/it/u=4051840921,700495284&fm=21&gp=0.jpg",
+                    "http://img5.imgtn.bdimg.com/it/u=1760914900,3870956441&fm=21&gp=0.jpg",
+                    "http://img4.imgtn.bdimg.com/it/u=3606557979,3970544915&fm=21&gp=0.jpg",
+                    "http://img3.imgtn.bdimg.com/it/u=2607168994,1927047699&fm=21&gp=0.jpg",
+                    "http://img5.imgtn.bdimg.com/it/u=3146265668,3482724667&fm=21&gp=0.jpg",
+                    "http://img2.imgtn.bdimg.com/it/u=916494871,2899672123&fm=21&gp=0.jpg",
+                    "http://img2.imgtn.bdimg.com/it/u=3147277467,4102538871&fm=21&gp=0.jpg",
+                    "http://img2.imgtn.bdimg.com/it/u=41411327,1928322537&fm=21&gp=0.jpg",
+                    "http://img0.imgtn.bdimg.com/it/u=3082366577,948868705&fm=21&gp=0.jpg",
+                    "http://img3.imgtn.bdimg.com/it/u=2803247968,2662754487&fm=21&gp=0.jpg",
+                    "http://img1.imgtn.bdimg.com/it/u=15561503,175246310&fm=21&gp=0.jpg",
+                    "http://img3.imgtn.bdimg.com/it/u=2995887086,1580068967&fm=21&gp=0.jpg",
+                    "http://img2.imgtn.bdimg.com/it/u=3703227479,3856760347&fm=21&gp=0.jpg",
+                    "http://img1.imgtn.bdimg.com/it/u=2363027421,438461014&fm=21&gp=0.jpg",
+                    "http://img2.imgtn.bdimg.com/it/u=2321075060,249034434&fm=21&gp=0.jpg",
+                    "http://img3.imgtn.bdimg.com/it/u=1203218434,1917840635&fm=21&gp=0.jpg",
+                    "http://img5.imgtn.bdimg.com/it/u=3741636297,2352266532&fm=21&gp=0.jpg",
+                    "http://img5.imgtn.bdimg.com/it/u=3453922217,4059758086&fm=21&gp=0.jpg",
+                    "http://img3.imgtn.bdimg.com/it/u=2357558987,619075240&fm=21&gp=0.jpg",
+                    "http://img3.imgtn.bdimg.com/it/u=472365597,24999300&fm=21&gp=0.jpg",
+                    "http://img0.imgtn.bdimg.com/it/u=2966150313,1487771539&fm=21&gp=0.jpg",
+                    "http://img0.imgtn.bdimg.com/it/u=55694801,734304469&fm=21&gp=0.jpg",
+                    "http://img5.imgtn.bdimg.com/it/u=2492820058,808842823&fm=21&gp=0.jpg",
+                    "http://img3.imgtn.bdimg.com/it/u=4087641587,1392272150&fm=21&gp=0.jpg",
+                    "http://img4.imgtn.bdimg.com/it/u=1244060113,3335681647&fm=21&gp=0.jpg",
+                    "http://img1.imgtn.bdimg.com/it/u=3617696311,369851430&fm=21&gp=0.jpg",
+                    "http://img5.imgtn.bdimg.com/it/u=349873712,3887870781&fm=21&gp=0.jpg",
+                    "http://img0.imgtn.bdimg.com/it/u=2529264775,1744244543&fm=21&gp=0.jpg",
+                    "http://img1.imgtn.bdimg.com/it/u=4080009191,390756648&fm=21&gp=0.jpg",
+                    "http://img1.imgtn.bdimg.com/it/u=1327138584,3278114021&fm=21&gp=0.jpg",
+                    "http://img3.imgtn.bdimg.com/it/u=423042785,842699608&fm=21&gp=0.jpg",
+                    "http://img1.imgtn.bdimg.com/it/u=3681059380,3180165457&fm=21&gp=0.jpg",
+                    "http://img0.imgtn.bdimg.com/it/u=3577630376,149227420&fm=21&gp=0.jpg",
+                    "http://img4.imgtn.bdimg.com/it/u=4095949570,2219827300&fm=21&gp=0.jpg",
+                    "http://img3.imgtn.bdimg.com/it/u=727976653,494598314&fm=21&gp=0.jpg"
+                ],
+                [
+                    "http://img5.imgtn.bdimg.com/it/u=317536119,1152517658&fm=21&gp=0.jpg",
+                    "http://img4.imgtn.bdimg.com/it/u=3673450456,2434143346&fm=21&gp=0.jpg",
+                    "http://img3.imgtn.bdimg.com/it/u=649720716,2799907095&fm=21&gp=0.jpg",
+                    "http://img4.imgtn.bdimg.com/it/u=1790796538,3120926500&fm=21&gp=0.jpg",
+                    "http://img3.imgtn.bdimg.com/it/u=2165175176,3806470859&fm=21&gp=0.jpg",
+                    "http://img3.imgtn.bdimg.com/it/u=331241164,708074363&fm=21&gp=0.jpg",
+                    "http://img0.imgtn.bdimg.com/it/u=3592064077,3415214001&fm=21&gp=0.jpg",
+                    "http://img3.imgtn.bdimg.com/it/u=3100906988,1346979011&fm=21&gp=0.jpg",
+                    "http://img5.imgtn.bdimg.com/it/u=4213657502,2446912333&fm=21&gp=0.jpg",
+                    "http://img5.imgtn.bdimg.com/it/u=933516313,3541830110&fm=21&gp=0.jpg",
+                    "http://img4.imgtn.bdimg.com/it/u=1360096623,2299084495&fm=21&gp=0.jpg",
+                    "http://img2.imgtn.bdimg.com/it/u=2559448548,1521586694&fm=21&gp=0.jpg",
+                    "http://img4.imgtn.bdimg.com/it/u=1990601815,3596917195&fm=21&gp=0.jpg",
+                    "http://img4.imgtn.bdimg.com/it/u=3324658200,4181117072&fm=21&gp=0.jpg",
+                    "http://img1.imgtn.bdimg.com/it/u=1865778029,1637348798&fm=21&gp=0.jpg",
+                    "http://img2.imgtn.bdimg.com/it/u=3959482083,2896701621&fm=21&gp=0.jpg",
+                    "http://img5.imgtn.bdimg.com/it/u=3012750373,3072286778&fm=21&gp=0.jpg",
+                    "http://img0.imgtn.bdimg.com/it/u=2969002993,3629637585&fm=21&gp=0.jpg",
+                    "http://img1.imgtn.bdimg.com/it/u=1566477378,2865054383&fm=21&gp=0.jpg",
+                    "http://img4.imgtn.bdimg.com/it/u=3831410516,2416395474&fm=21&gp=0.jpg",
+                    "http://img3.imgtn.bdimg.com/it/u=3401149060,4183403805&fm=21&gp=0.jpg",
+                    "http://img3.imgtn.bdimg.com/it/u=2057443820,2223803551&fm=21&gp=0.jpg",
+                    "http://img3.imgtn.bdimg.com/it/u=511842923,3649862854&fm=21&gp=0.jpg",
+                    "http://img5.imgtn.bdimg.com/it/u=1618319216,3590110525&fm=21&gp=0.jpg",
+                    "http://img4.imgtn.bdimg.com/it/u=3377916227,1848651153&fm=21&gp=0.jpg",
+                    "http://img0.imgtn.bdimg.com/it/u=108908129,1142302339&fm=21&gp=0.jpg",
+                    "http://img1.imgtn.bdimg.com/it/u=3521524911,2686899770&fm=21&gp=0.jpg",
+                    "http://img5.imgtn.bdimg.com/it/u=2756988436,2334162029&fm=21&gp=0.jpg",
+                    "http://img4.imgtn.bdimg.com/it/u=233301810,1391954254&fm=21&gp=0.jpg",
+                    "http://gtb.baidu.com/HttpService/get?p=dHlwZT1pbWFnZS9qcGVnJm49dmlzJnQ9YWRpbWcmYz10YjppZyZyPTE4MDI2ODE3NTQsMzk1MDkwOTU5MAAAAA==",
+                    "http://img2.imgtn.bdimg.com/it/u=80788115,2619485727&fm=21&gp=0.jpg",
+                    "http://img2.imgtn.bdimg.com/it/u=1436151665,1196898981&fm=21&gp=0.jpg",
+                    "http://img0.imgtn.bdimg.com/it/u=3559522589,1129570619&fm=21&gp=0.jpg",
+                    "http://img2.imgtn.bdimg.com/it/u=3972168640,1534027994&fm=21&gp=0.jpg",
+                    "http://img0.imgtn.bdimg.com/it/u=2012651901,1741537059&fm=21&gp=0.jpg",
+                    "http://img1.imgtn.bdimg.com/it/u=950849672,1215614387&fm=21&gp=0.jpg",
+                    "http://img5.imgtn.bdimg.com/it/u=1899811491,620456162&fm=21&gp=0.jpg",
+                    "http://img2.imgtn.bdimg.com/it/u=1643586985,766058485&fm=21&gp=0.jpg",
+                    "http://img1.imgtn.bdimg.com/it/u=3061230256,3717941509&fm=21&gp=0.jpg"
+                ],
+                [
+                    "http://img3.imgtn.bdimg.com/it/u=2887481979,4143109756&fm=21&gp=0.jpg",
+                    "http://img0.imgtn.bdimg.com/it/u=372285946,3047952440&fm=21&gp=0.jpg",
+                    "http://img5.imgtn.bdimg.com/it/u=2227917054,2938737981&fm=21&gp=0.jpg",
+                    "http://img5.imgtn.bdimg.com/it/u=2420420839,4174106192&fm=21&gp=0.jpg",
+                    "http://img3.imgtn.bdimg.com/it/u=2595949415,2690550080&fm=21&gp=0.jpg",
+                    "http://img4.imgtn.bdimg.com/it/u=1700775314,22266092&fm=21&gp=0.jpg",
+                    "http://img5.imgtn.bdimg.com/it/u=775153931,3168122838&fm=21&gp=0.jpg",
+                    "http://img4.imgtn.bdimg.com/it/u=2245574241,3019466093&fm=21&gp=0.jpg",
+                    "http://img4.imgtn.bdimg.com/it/u=3349333663,2220587287&fm=21&gp=0.jpg",
+                    "http://img3.imgtn.bdimg.com/it/u=1590188312,4231370837&fm=21&gp=0.jpg",
+                    "http://img3.imgtn.bdimg.com/it/u=3344516479,282212666&fm=21&gp=0.jpg",
+                    "http://img1.imgtn.bdimg.com/it/u=3953528261,1831151748&fm=21&gp=0.jpg",
+                    "http://img1.imgtn.bdimg.com/it/u=602501278,4132276297&fm=21&gp=0.jpg",
+                    "http://img1.imgtn.bdimg.com/it/u=219517071,2563084612&fm=21&gp=0.jpg",
+                    "http://img3.imgtn.bdimg.com/it/u=1752770160,3242367601&fm=21&gp=0.jpg",
+                    "http://img1.imgtn.bdimg.com/it/u=542464399,2573402304&fm=21&gp=0.jpg",
+                    "http://img2.imgtn.bdimg.com/it/u=4079028105,751468593&fm=21&gp=0.jpg",
+                    "http://img0.imgtn.bdimg.com/it/u=3109820578,1078912628&fm=21&gp=0.jpg",
+                    "http://img2.imgtn.bdimg.com/it/u=4241277636,1925147574&fm=21&gp=0.jpg",
+                    "http://img3.imgtn.bdimg.com/it/u=3124567768,4129680429&fm=21&gp=0.jpg",
+                    "http://img1.imgtn.bdimg.com/it/u=2100753327,857322010&fm=21&gp=0.jpg",
+                    "http://img3.imgtn.bdimg.com/it/u=1442913770,2719471351&fm=21&gp=0.jpg",
+                    "http://img3.imgtn.bdimg.com/it/u=4225553259,64141980&fm=21&gp=0.jpg",
+                    "http://img0.imgtn.bdimg.com/it/u=2059100537,3426752459&fm=21&gp=0.jpg",
+                    "http://img5.imgtn.bdimg.com/it/u=2464952321,3339139972&fm=21&gp=0.jpg",
+                    "http://img0.imgtn.bdimg.com/it/u=1430919952,2840600252&fm=21&gp=0.jpg",
+                    "http://img4.imgtn.bdimg.com/it/u=654150040,887225046&fm=21&gp=0.jpg",
+                    "http://img3.imgtn.bdimg.com/it/u=1104415731,3885939784&fm=21&gp=0.jpg",
+                    "http://img2.imgtn.bdimg.com/it/u=1519166993,1465104717&fm=21&gp=0.jpg",
+                    "http://img5.imgtn.bdimg.com/it/u=2854520259,3833772822&fm=21&gp=0.jpg",
+                    "http://img1.imgtn.bdimg.com/it/u=409248329,298415960&fm=21&gp=0.jpg",
+                    "http://img1.imgtn.bdimg.com/it/u=3750652029,1968151730&fm=21&gp=0.jpg",
+                    "http://img5.imgtn.bdimg.com/it/u=2611566400,547040095&fm=21&gp=0.jpg",
+                    "http://img5.imgtn.bdimg.com/it/u=2946893755,898530310&fm=21&gp=0.jpg",
+                    "http://img5.imgtn.bdimg.com/it/u=433499756,1868410419&fm=21&gp=0.jpg",
+                    "http://img5.imgtn.bdimg.com/it/u=57391995,27278810&fm=21&gp=0.jpg",
+                    "http://img3.imgtn.bdimg.com/it/u=1207601592,2585094267&fm=21&gp=0.jpg",
+                    "http://img2.imgtn.bdimg.com/it/u=2072149567,4191894251&fm=21&gp=0.jpg",
+                    "http://img4.imgtn.bdimg.com/it/u=3094892536,4017560374&fm=21&gp=0.jpg"
+                ],
+                [
+                    "http://img5.imgtn.bdimg.com/it/u=3684615236,1179824701&fm=21&gp=0.jpg",
+                    "http://img2.imgtn.bdimg.com/it/u=3002902336,1864160630&fm=21&gp=0.jpg",
+                    "http://img4.imgtn.bdimg.com/it/u=1016255336,2799736478&fm=21&gp=0.jpg",
+                    "http://img1.imgtn.bdimg.com/it/u=2018721268,3416270635&fm=21&gp=0.jpg",
+                    "http://img0.imgtn.bdimg.com/it/u=3495497258,2381786210&fm=21&gp=0.jpg",
+                    "http://img1.imgtn.bdimg.com/it/u=61092371,2557115966&fm=21&gp=0.jpg",
+                    "http://img1.imgtn.bdimg.com/it/u=1565592788,557652431&fm=21&gp=0.jpg",
+                    "http://img2.imgtn.bdimg.com/it/u=1925797843,686027677&fm=21&gp=0.jpg",
+                    "http://img0.imgtn.bdimg.com/it/u=226868386,1017436838&fm=21&gp=0.jpg",
+                    "http://img2.imgtn.bdimg.com/it/u=3855396003,3016887477&fm=21&gp=0.jpg",
+                    "http://img3.imgtn.bdimg.com/it/u=2283197098,3529627593&fm=21&gp=0.jpg",
+                    "http://img5.imgtn.bdimg.com/it/u=1717815713,574123482&fm=21&gp=0.jpg",
+                    "http://img5.imgtn.bdimg.com/it/u=2172027294,3054766779&fm=21&gp=0.jpg",
+                    "http://img3.imgtn.bdimg.com/it/u=2650966269,1254853428&fm=21&gp=0.jpg",
+                    "http://img4.imgtn.bdimg.com/it/u=1883904483,2101882639&fm=21&gp=0.jpg",
+                    "http://img5.imgtn.bdimg.com/it/u=553283274,4141664427&fm=21&gp=0.jpg",
+                    "http://img2.imgtn.bdimg.com/it/u=3936531180,3131596260&fm=21&gp=0.jpg",
+                    "http://img1.imgtn.bdimg.com/it/u=1482256652,1772566313&fm=21&gp=0.jpg",
+                    "http://img5.imgtn.bdimg.com/it/u=1947693915,3177583116&fm=21&gp=0.jpg",
+                    "http://img5.imgtn.bdimg.com/it/u=2830883283,1089981392&fm=21&gp=0.jpg",
+                    "http://img0.imgtn.bdimg.com/it/u=645705996,3705165772&fm=21&gp=0.jpg",
+                    "http://img5.imgtn.bdimg.com/it/u=3306193217,2429128522&fm=21&gp=0.jpg",
+                    "http://img5.imgtn.bdimg.com/it/u=3349820423,103849788&fm=21&gp=0.jpg",
+                    "http://img2.imgtn.bdimg.com/it/u=896931845,39082515&fm=21&gp=0.jpg",
+                    "http://img2.imgtn.bdimg.com/it/u=2989058834,1837755118&fm=21&gp=0.jpg",
+                    "http://img3.imgtn.bdimg.com/it/u=3121157888,2012666465&fm=21&gp=0.jpg",
+                    "http://img5.imgtn.bdimg.com/it/u=3669566317,2324400662&fm=21&gp=0.jpg",
+                    "http://img0.imgtn.bdimg.com/it/u=2394424300,1291308044&fm=21&gp=0.jpg",
+                    "http://img5.imgtn.bdimg.com/it/u=3496253601,3768184710&fm=21&gp=0.jpg",
+                    "http://img2.imgtn.bdimg.com/it/u=1818984505,1870146919&fm=21&gp=0.jpg",
+                    "http://img2.imgtn.bdimg.com/it/u=3025885391,884982255&fm=21&gp=0.jpg",
+                    "http://img1.imgtn.bdimg.com/it/u=3511167462,4114668785&fm=21&gp=0.jpg",
+                    "http://img3.imgtn.bdimg.com/it/u=1357261318,2150706761&fm=21&gp=0.jpg",
+                    "http://img2.imgtn.bdimg.com/it/u=946686790,4195715516&fm=21&gp=0.jpg",
+                    "http://img0.imgtn.bdimg.com/it/u=4266554364,2114634514&fm=21&gp=0.jpg",
+                    "http://img4.imgtn.bdimg.com/it/u=1383495580,2722484226&fm=21&gp=0.jpg",
+                    "http://img2.imgtn.bdimg.com/it/u=3061670298,3198341064&fm=11&gp=0.jpg",
+                    "http://img4.imgtn.bdimg.com/it/u=1753539544,729174438&fm=21&gp=0.jpg",
+                    "http://img1.imgtn.bdimg.com/it/u=2171924255,1369984700&fm=21&gp=0.jpg",
+                    "http://img5.imgtn.bdimg.com/it/u=2850301766,3500879821&fm=21&gp=0.jpg",
+                    "http://img0.imgtn.bdimg.com/it/u=937733226,4215979108&fm=21&gp=0.jpg",
+                    "http://img0.imgtn.bdimg.com/it/u=2214193623,3053658865&fm=21&gp=0.jpg"
+                ]
+            ];
+
+            var page = 0;
+            var SCROLL_THRESHOLD = 20;
+            var container = document.getElementById('container');
+
+            function update(page) {
+                var images = pagedImages[page];
+                var html = [];
+                var div = null;
+                var img = null;
+                var fragment = document.createDocumentFragment();
+                for (var i = 0, len = images.length; i < len; i++) {
+                    div = document.createElement('div');
+                    div.className = 'wf-img';
+                    img = document.createElement('img');
+                    img.src = images[i];
+                    div.appendChild(img);
+                    fragment.appendChild(div);
+                }
+                container.appendChild(fragment);
+            }
+
+            update(page);
+
+            var waterfall = new Waterfall({
+                container: container
+            });
+
+            window.onscroll = function () {
+                var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+                var scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
+                if (!scrollTop || scrollTop + window.innerHeight + SCROLL_THRESHOLD < scrollHeight) {
+                    return;
+                }
+
+                if (page + 1 < pagedImages.length) {
+                    update(++page);
+                    waterfall.render();
+                }
+            };
+        </script>
+    </body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "waterfall",
+  "version": "1.0.0",
+  "description": "图片瀑布流展示",
+  "main": "Waterfall.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "waterfall"
+  ],
+  "author": "brucexu20@gmail.com",
+  "license": "ISC"
+}
