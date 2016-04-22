@@ -115,7 +115,7 @@
         }
         // For some bt browser
         else {
-            var style = element.getAttribute('style');
+            var style = element.getAttribute('style') || '';
             element.setAttribute('style', style + (style ? ';' : '' + styles.join(';')));
         }
     }
